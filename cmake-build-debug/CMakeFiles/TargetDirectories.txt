@@ -1,0 +1,3 @@
+/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/cmake-build-debug/CMakeFiles/BurguerTI_AED.dir
+/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/cmake-build-debug/CMakeFiles/rebuild_cache.dir
