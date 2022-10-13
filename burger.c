@@ -108,9 +108,9 @@ void loadArquivo(){
         fr = fopen(path,"r");
     }
     printf("Arquivo carregado!\n\n");
-    for(i=n=0; fscanf(fr,"%[^\n]%*c",pedline[i]) != EOF;i++);
+    for(i=n=0 ; fscanf(fr,"%[^\n]%*c",pedline[i]) != EOF ; i++);
     n = i;
-    for(i=0;i<n;i++) printf("%s\n",pedline[i]);
+    for(i=0; i<n ;i++) printf("%s\n",pedline[i]);
 
     fclose(fr);
 }
