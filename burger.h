@@ -1,5 +1,6 @@
 #ifndef BURGER_H
 #define BURGER_H
+#include <stdio.h>
 
 void menu();
 void cadastroSanduiche();
@@ -13,6 +14,7 @@ void printExtra();
 void printPedido();
 void printPedidoAtendido();
 void cadastroPedido();
-void loadArquivo();
+void loadPath();
+int loadFile(char* path, FILE* file);
 
 #endif //BURGER_H

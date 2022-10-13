@@ -52,7 +52,7 @@ void menu(){
             cadastroPedido();
             break;
         case 12:
-            loadArquivo();
+            loadPath();
             break;
         default:
             break;
@@ -94,23 +94,30 @@ void cadastroPedido(){
 
 }
 
-void loadArquivo(){
-    FILE* fr;
+void loadPath(){
     int i,n;
+    FILE *fr;
     char path[50], pedline[MAX][MAX];
-    printf("Nome do arquivo:");
-    scanf("%s%*c", path);
-    fr = fopen(path,"r");
-    while(fr == NULL){
-        printf("Arquivo nao encontrado!\n");
+    do{
         printf("Nome do arquivo:");
         scanf("%s%*c", path);
-        fr = fopen(path,"r");
+        fr = fopen(path, "r");
     }
-    printf("Arquivo carregado!\n\n");
+    while(loadFile(path, fr));
     for(i=n=0 ; fscanf(fr,"%[^\n]%*c",pedline[i]) != EOF ; i++);
     n = i;
     for(i=0; i<n ;i++) printf("%s\n",pedline[i]);
-
+    printf("\n");
     fclose(fr);
+}
+
+int loadFile(char* path, FILE* file){
+    if(file == NULL){
+        printf("Arquivo nao encontrado!\n");
+        return 1;
+    }
+    else{
+        printf("Arquivo lido com sucesso!\n");
+        return 0;
+    }
 }
