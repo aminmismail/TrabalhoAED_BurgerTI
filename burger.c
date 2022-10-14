@@ -94,7 +94,7 @@ void cadastroPedido(){
 
 }
 
-void loadPath(){
+void loadPath(){ //Le o caminho do arquivo, juntamente com o conteudo do arquivo
     int i,n;
     FILE *fr;
     char path[50], pedline[MAX][MAX];
