@@ -4,17 +4,14 @@
 #include "burger.h"
 #define MAX 500
 
-void lwBin(){ //TODO
-    FILE *frw;
-    char path[50], pedline[MAX][MAX];
+FILE* openBin(char* path){
+    FILE *fr;
     do{
-        printf("Nome do arquivo:");
-        scanf("%s%*c", path);
-        frw = fopen(path, "w+b");
+        fr = fopen(path, "rb+");
     }
-    while(loadFile(path, frw));
+    while(loadFile(path, fr));
     printf("\n");
-    fclose(frw);
+    return fr;
 }
 
 //Escreve no arquivo o cabecalho contendo as informacoes da lista

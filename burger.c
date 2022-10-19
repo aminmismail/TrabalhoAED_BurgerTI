@@ -61,7 +61,7 @@ void menu(){
 }
 
 void cadastroSanduiche(){
-
+//fclose
 }
 void cadastroBebida(){
 
@@ -113,7 +113,7 @@ void loadPath(){ //Le o caminho do arquivo, juntamente com o conteudo do arquivo
 
 int loadFile(char* path, FILE* file){
     if(file == NULL){
-        printf("Arquivo nao encontrado!\n");
+        printf("Falha ao ler arquivo!\n");
         return 1;
     }
     else{

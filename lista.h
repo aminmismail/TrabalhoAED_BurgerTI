@@ -15,7 +15,10 @@ typedef struct {
     int prox;
 } no;
 
-void lwBin();
+//
+//Pre-condicao:
+//Pos-condicao:
+void leBin();
 
 //Escreve no arquivo o cabecalho contendo as informacoes da lista
 //Pre-condicao: arquivo deve estar aberto e ser um arquivo de lista
