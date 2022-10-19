@@ -77,6 +77,13 @@ void cadastroSanduiche(){
 void gravaSand(sanduiche *sand) {
     FILE* fw;
     fw = openBin("../sanduiche.bin");
+    if(le_cabecalho(fw) == NULL){
+        cria_lista_vazia(fw);
+    }
+    else{
+        insere()
+    }
+
 
     //CONTINUAR
 }
