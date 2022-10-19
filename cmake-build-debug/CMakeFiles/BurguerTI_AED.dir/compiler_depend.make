@@ -7,15 +7,16 @@ CMakeFiles/BurguerTI_AED.dir/burger.c.o: /mnt/c/Users/amin_/Desktop/CODIGOS/CLio
   /usr/include/stdio.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h \
-  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/features-time64.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
-  /usr/include/x86_64-linux-gnu/bits/timesize.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
@@ -50,6 +51,7 @@ CMakeFiles/BurguerTI_AED.dir/burger.c.o: /mnt/c/Users/amin_/Desktop/CODIGOS/CLio
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
@@ -61,15 +63,16 @@ CMakeFiles/BurguerTI_AED.dir/lista.c.o: /mnt/c/Users/amin_/Desktop/CODIGOS/CLion
   /usr/include/stdio.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h \
-  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/features-time64.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
-  /usr/include/x86_64-linux-gnu/bits/timesize.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
@@ -104,25 +107,28 @@ CMakeFiles/BurguerTI_AED.dir/lista.c.o: /mnt/c/Users/amin_/Desktop/CODIGOS/CLion
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
-  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /mnt/c/Users/amin_/Desktop/CODIGOS/CLion\ Projects/TrabalhoAED_BurgerTI/burger.h
 
 CMakeFiles/BurguerTI_AED.dir/main.c.o: /mnt/c/Users/amin_/Desktop/CODIGOS/CLion\ Projects/TrabalhoAED_BurgerTI/main.c \
   /usr/include/stdc-predef.h \
   /usr/include/stdio.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h \
-  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/features-time64.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
-  /usr/include/x86_64-linux-gnu/bits/timesize.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
@@ -157,6 +163,7 @@ CMakeFiles/BurguerTI_AED.dir/main.c.o: /mnt/c/Users/amin_/Desktop/CODIGOS/CLion\
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
@@ -171,8 +178,6 @@ CMakeFiles/BurguerTI_AED.dir/main.c.o: /mnt/c/Users/amin_/Desktop/CODIGOS/CLion\
 
 /usr/include/strings.h:
 
-/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
-
 /usr/include/stdlib.h:
 
 /mnt/c/Users/amin_/Desktop/CODIGOS/CLion\ Projects/TrabalhoAED_BurgerTI/lista.h:
@@ -180,8 +185,6 @@ CMakeFiles/BurguerTI_AED.dir/main.c.o: /mnt/c/Users/amin_/Desktop/CODIGOS/CLion\
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
-
-/usr/include/x86_64-linux-gnu/bits/types.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
@@ -205,9 +208,9 @@ CMakeFiles/BurguerTI_AED.dir/main.c.o: /mnt/c/Users/amin_/Desktop/CODIGOS/CLion\
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
-/usr/include/x86_64-linux-gnu/bits/timesize.h:
+/usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h:
 
-/mnt/c/Users/amin_/Desktop/CODIGOS/CLion\ Projects/TrabalhoAED_BurgerTI/main.c:
+/usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
@@ -239,9 +242,13 @@ CMakeFiles/BurguerTI_AED.dir/main.c.o: /mnt/c/Users/amin_/Desktop/CODIGOS/CLion\
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h:
+/usr/include/features-time64.h:
 
-/usr/include/x86_64-linux-gnu/sys/types.h:
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
+
+/mnt/c/Users/amin_/Desktop/CODIGOS/CLion\ Projects/TrabalhoAED_BurgerTI/main.c:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
 /usr/include/endian.h:
 
@@ -281,10 +288,14 @@ CMakeFiles/BurguerTI_AED.dir/main.c.o: /mnt/c/Users/amin_/Desktop/CODIGOS/CLion\
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
-/mnt/c/Users/amin_/Desktop/CODIGOS/CLion\ Projects/TrabalhoAED_BurgerTI/burger.c:
-
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
+/mnt/c/Users/amin_/Desktop/CODIGOS/CLion\ Projects/TrabalhoAED_BurgerTI/burger.c:
+
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:

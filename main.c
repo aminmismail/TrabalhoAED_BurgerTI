@@ -6,7 +6,7 @@
 
 int main() {
     //menu();
-
+    openBin("../extra.bin");
 
     return 0;
 }

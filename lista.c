@@ -6,11 +6,15 @@
 
 FILE* openBin(char* path){
     FILE *fwr;
+    char teste[] = "Teste", giga[100];
     do{
-        fwr = fopen(path, "ab+");
+        fwr = fopen(path, "a+b");
     }
     while(loadFile(path, fwr));
-    printf("\n");
+    //fwrite(teste, 8, 1, fwr);
+    fseek(fwr, 0, SEEK_SET);
+    fread(giga, 8, 1, fwr);
+    printf("%s\n",giga);
     return fwr;
 }
 
