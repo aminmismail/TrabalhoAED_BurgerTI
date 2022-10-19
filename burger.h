@@ -5,7 +5,7 @@
 typedef struct{ //SD
     int id;
     char nome[50];
-    char desc[300];
+    char desc[200];
     char disp[2];
     float preco[3]; // preco do p, m, g
 }sanduiche;
@@ -38,21 +38,34 @@ typedef struct{ //PD
     float total;
 }pedido;
 
-
-
 void menu();
+
 void cadastroSanduiche();
+
+void gravaSand(sanduiche *sand);
+
 void cadastroBebida();
+
 void cadastroSobremesa();
+
 void cadastroExtra();
+
 void printSanduiche();
+
 void printBebida();
+
 void printSobremesa();
+
 void printExtra();
+
 void printPedido();
+
 void printPedidoAtendido();
+
 void cadastroPedido();
+
 void loadPath();
+
 int loadFile(char* path, FILE* file);
 
 #endif //BURGER_H

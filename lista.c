@@ -62,7 +62,7 @@ no* le_no(FILE* arq, int pos) {
 //Pre-condicao: arquivo deve estar aberto e ser um arquivo de lista; pos deve ser uma posicao valida do arquivo
 //Pos-condicao: no escrito no arquivo
 void escreve_no(FILE* arq, no* x, int pos){
-    fseek(arq,sizeof(cabecalho) + pos*sizeof(no),SEEK_SET);
+    fseek(arq,sizeof(cabecalho) + pos * sizeof(no),SEEK_SET);
     fwrite(x,sizeof(no),1,arq);
 }
 

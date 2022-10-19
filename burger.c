@@ -1,4 +1,5 @@
 #include "burger.h"
+#include "lista.h"
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX 500
@@ -61,10 +62,25 @@ void menu(){
 }
 
 void cadastroSanduiche(){
+    sanduiche* sand;
+    printf("Código: "); scanf("%d%*c", &sand->id);
+    printf("Nome: "); scanf("%[^\n]%*c", sand->nome);
+    printf("Descricao: "); scanf("%[^\n]%*c", sand->desc);
+    printf("Disponibilidade: "); scanf("%s%*c", sand->disp);
+    printf("Preco (P): "); scanf("%f%*c", &sand->preco[0]);
+    printf("Preco (M): "); scanf("%f%*c", &sand->preco[1]);
+    printf("Preco (G): "); scanf("%f%*c", &sand->preco[2]);
+    gravaSand(sand);
 
-
-    //fclose
 }
+
+void gravaSand(sanduiche *sand) {
+    FILE* fw;
+    fw = openBin("../sanduiche.bin");
+
+    //CONTINUAR
+}
+
 void cadastroBebida(){
 
 }
