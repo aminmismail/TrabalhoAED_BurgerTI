@@ -61,7 +61,9 @@ void menu(){
 }
 
 void cadastroSanduiche(){
-//fclose
+
+
+    //fclose
 }
 void cadastroBebida(){
 

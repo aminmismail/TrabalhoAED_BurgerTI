@@ -6,15 +6,15 @@
 
 FILE* openBin(char* path){
     FILE *fwr;
-    char teste[] = "Teste", giga[100];
+    //char teste[] = "Teste", giga[100];
     do{
         fwr = fopen(path, "a+b");
     }
     while(loadFile(path, fwr));
-    //fwrite(teste, 8, 1, fwr);
+    /*fwrite(teste, 8, 1, fwr);
     fseek(fwr, 0, SEEK_SET);
     fread(giga, 8, 1, fwr);
-    printf("%s\n",giga);
+    printf("%s\n",giga);*/
     return fwr;
 }
 
@@ -28,7 +28,7 @@ void escreve_cabecalho(FILE* arq, cabecalho* cab){
 
 //Cria uma lista nova em arquivo
 //Pre-condicao: arquivo aberto para leitura/escrita
-//Pos-condicao: arquivo e inicializado com uma lista vazia
+//Pos-condicao: arquivo inicializado com uma lista vazia
 void cria_lista_vazia(FILE* arq){
     cabecalho * cab = (cabecalho*) malloc(sizeof(cabecalho));
     cab->pos_cabeca = -1;
@@ -53,7 +53,7 @@ cabecalho* le_cabecalho(FILE * arq) {
 //Pos-condicao: ponteiro para no lido e retornado
 no* le_no(FILE* arq, int pos) {
     no* x = malloc(sizeof(no));
-    fseek(arq,sizeof(cabecalho)+ pos*sizeof(no),SEEK_SET);
+    fseek(arq,sizeof(cabecalho)+ pos * sizeof(no),SEEK_SET);
     fread(x,sizeof(no),1,arq);
     return x;
 }
@@ -62,7 +62,7 @@ no* le_no(FILE* arq, int pos) {
 //Pre-condicao: arquivo deve estar aberto e ser um arquivo de lista; pos deve ser uma posicao valida do arquivo
 //Pos-condicao: no escrito no arquivo
 void escreve_no(FILE* arq, no* x, int pos){
-    fseek(arq,sizeof(cabecalho)+ pos*sizeof(no),SEEK_SET);
+    fseek(arq,sizeof(cabecalho) + pos*sizeof(no),SEEK_SET);
     fwrite(x,sizeof(no),1,arq);
 }
 
