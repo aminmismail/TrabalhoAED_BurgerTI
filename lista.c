@@ -5,13 +5,13 @@
 #define MAX 500
 
 FILE* openBin(char* path){
-    FILE *fr;
+    FILE *fwr;
     do{
-        fr = fopen(path, "rb+");
+        fwr = fopen(path, "ab+");
     }
-    while(loadFile(path, fr));
+    while(loadFile(path, fwr));
     printf("\n");
-    return fr;
+    return fwr;
 }
 
 //Escreve no arquivo o cabecalho contendo as informacoes da lista

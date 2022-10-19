@@ -18,7 +18,7 @@ typedef struct {
 //
 //Pre-condicao:
 //Pos-condicao:
-void leBin();
+FILE* openBin();
 
 //Escreve no arquivo o cabecalho contendo as informacoes da lista
 //Pre-condicao: arquivo deve estar aberto e ser um arquivo de lista
