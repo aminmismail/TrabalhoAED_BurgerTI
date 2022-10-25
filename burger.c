@@ -77,14 +77,9 @@ void cadastroSanduiche(){
 void gravaSand(sanduiche *sand) {
     FILE* fw;
     fw = openBin("../sanduiche.bin");
-    if(le_cabecalho(fw) == NULL){
-        cria_lista_vazia(fw);
-    }
-    else{
-        insere()
-    }
-
-
+    fseek(fw, 0, SEEK_SET);
+    fwrite(sand,sizeof(sanduiche),1,fw);
+    fclose(fw);
     //CONTINUAR
 }
 
@@ -98,7 +93,12 @@ void cadastroExtra(){
 
 }
 void printSanduiche(){
-
+    FILE* fw;
+    char lsand[2][300];
+    fw = openBin("../sanduiche.bin");
+    fseek(fw, 0, SEEK_SET);
+    fread(lsand,sizeof(sanduiche),1,fw);
+    fclose(fw);
 }
 void printBebida(){
 
