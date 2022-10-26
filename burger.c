@@ -18,7 +18,6 @@ void menu(){
     switch(op) {
         case 0:
             exit(0);
-            break;
         case 1:
             cadastroSanduiche();
             break;
@@ -62,15 +61,16 @@ void menu(){
 }
 
 void cadastroSanduiche(){
-    sanduiche* sand;
+    sanduiche* sand = malloc(sizeof(sanduiche));
     printf("Código: "); scanf("%d%*c", &sand->id);
     printf("Nome: "); scanf("%[^\n]%*c", sand->nome);
     printf("Descricao: "); scanf("%[^\n]%*c", sand->desc);
-    printf("Disponibilidade: "); scanf("%s%*c", sand->disp);
-    printf("Preco (P): "); scanf("%f%*c", &sand->preco[0]);
-    printf("Preco (M): "); scanf("%f%*c", &sand->preco[1]);
-    printf("Preco (G): "); scanf("%f%*c", &sand->preco[2]);
+    printf("Disponibilidade: "); scanf("%s", sand->disp);
+    printf("Preco (Tam. P): "); scanf("%f", &sand->preco[0]);
+    printf("Preco (Tam. M): "); scanf("%f", &sand->preco[1]);
+    printf("Preco (Tam. G): "); scanf("%f%*c", &sand->preco[2]);
     gravaSand(sand);
+    free(sand);
 
 }
 
@@ -80,7 +80,7 @@ void gravaSand(sanduiche *sand) {
     fseek(fw, 0, SEEK_SET);
     fwrite(sand,sizeof(sanduiche),1,fw);
     fclose(fw);
-    //CONTINUAR
+
 }
 
 void cadastroBebida(){
@@ -94,10 +94,19 @@ void cadastroExtra(){
 }
 void printSanduiche(){
     FILE* fw;
-    char lsand[2][300];
+    sanduiche* sand = malloc(sizeof(sanduiche));
     fw = openBin("../sanduiche.bin");
     fseek(fw, 0, SEEK_SET);
-    fread(lsand,sizeof(sanduiche),1,fw);
+    while(fread(sand,sizeof(sanduiche),1,fw) != 0) {
+        printf("Código: %d\n", sand->id);
+        printf("Nome: %s\n", sand->nome);
+        printf("Descricao: %s\n", sand->desc);
+        printf("Disponibilidade: %s\n", sand->disp);
+        printf("Preco (Tam. P): %f\n", sand->preco[0]);
+        printf("Preco (Tam. M): %f\n", sand->preco[1]);
+        printf("Preco (Tam. G): %f\n", sand->preco[2]);
+    }
+    free(sand);
     fclose(fw);
 }
 void printBebida(){
