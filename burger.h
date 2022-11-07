@@ -54,7 +54,7 @@ void gravaSobremesa(sobremesa *sob);
 
 void cadastroExtra();
 
-void gravaExtra(extra *extra);
+void gravaExtra(extra *ex);
 
 void printSanduiche();
 

@@ -105,11 +105,43 @@ void gravaBebida(bebida *beb) {
 }
 
 void cadastroSobremesa(){
+    sobremesa* sob = malloc(sizeof(sobremesa));
+    printf("Código: "); scanf("%d%*c", &sob->id);
+    printf("Nome: "); scanf("%[^\n]%*c", sob->nome);
+    printf("Disponibilidade: "); scanf("%s", sob->disp);
+    printf("Preco: "); scanf("%f", &sob->preco);
+    gravaSobremesa(sob);
+    free(sob);
+}
+
+void gravaSobremesa(sobremesa *sob) {
+    FILE* fw;
+    fw = openBin("../sobremesa.bin");
+    fseek(fw, 0, SEEK_SET);
+    fwrite(sob,sizeof(sobremesa),1,fw);
+    fclose(fw);
 
 }
+
 void cadastroExtra(){
+    extra* ex = malloc(sizeof(extra));
+    printf("Código: "); scanf("%d%*c", &ex->id);
+    printf("Nome: "); scanf("%[^\n]%*c", ex->nome);
+    printf("Disponibilidade: "); scanf("%s", ex->disp);
+    printf("Preco: "); scanf("%f", &ex->preco);
+    gravaExtra(ex);
+    free(ex);
+}
+
+void gravaExtra(extra *ex) {
+    FILE* fw;
+    fw = openBin("../extra.bin");
+    fseek(fw, 0, SEEK_SET);
+    fwrite(ex,sizeof(extra),1,fw);
+    fclose(fw);
 
 }
+
 void printSanduiche(){
     FILE* fw;
     sanduiche* sand = malloc(sizeof(sanduiche));
@@ -146,11 +178,35 @@ void printBebida(){
 }
 
 void printSobremesa(){
-
+    FILE* fw;
+    sobremesa* sob = malloc(sizeof(sobremesa));
+    fw = openBin("../sobremesa.bin");
+    fseek(fw, 0, SEEK_SET);
+    while(fread(sob,sizeof(sobremesa),1,fw) != 0) {
+        printf("Código: %d\n", sob->id);
+        printf("Nome: %s\n", sob->nome);
+        printf("Disponibilidade: %s\n", sob->disp);
+        printf("Preco: %.2f\n", sob->preco);
+    }
+    free(sob);
+    fclose(fw);
 }
+
 void printExtra(){
-
+    FILE* fw;
+    extra* ex = malloc(sizeof(extra));
+    fw = openBin("../extra.bin");
+    fseek(fw, 0, SEEK_SET);
+    while(fread(ex,sizeof(extra),1,fw) != 0) {
+        printf("Código: %d\n", ex->id);
+        printf("Nome: %s\n", ex->nome);
+        printf("Disponibilidade: %s\n", ex->disp);
+        printf("Preco: %.2f\n", ex->preco);
+    }
+    free(ex);
+    fclose(fw);
 }
+//---------------//
 void printPedido(){
 
 }
@@ -160,7 +216,7 @@ void printPedidoAtendido(){
 void cadastroPedido(){
 
 }
-
+//---------------//
 void loadPath(){ //Le o caminho do arquivo, juntamente com o conteudo do arquivo
     int i,n;
     FILE *fr;
