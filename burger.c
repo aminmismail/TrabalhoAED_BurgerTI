@@ -120,15 +120,31 @@ void printSanduiche(){
         printf("Nome: %s\n", sand->nome);
         printf("Descricao: %s\n", sand->desc);
         printf("Disponibilidade: %s\n", sand->disp);
-        printf("Preco (Tam. P): %f\n", sand->preco[0]);
-        printf("Preco (Tam. M): %f\n", sand->preco[1]);
-        printf("Preco (Tam. G): %f\n", sand->preco[2]);
+        printf("Preco (Tam. P): %.2f\n", sand->preco[0]);
+        printf("Preco (Tam. M): %.2f\n", sand->preco[1]);
+        printf("Preco (Tam. G): %.2f\n\n", sand->preco[2]);
     }
     free(sand);
     fclose(fw);
 }
+
 void printBebida(){
+    FILE* fw;
+    bebida* beb = malloc(sizeof(bebida));
+    fw = openBin("../bebida.bin");
+    fseek(fw, 0, SEEK_SET);
+    while(fread(beb,sizeof(bebida),1,fw) != 0) {
+        printf("Código: %d\n", beb->id);
+        printf("Nome: %s\n", beb->nome);
+        printf("Disponibilidade: %s\n", beb->disp);
+        printf("Preco (Tam. P): %.2f\n", beb->preco[0]);
+        printf("Preco (Tam. M): %.2f\n", beb->preco[1]);
+        printf("Preco (Tam. G): %.2f\n\n", beb->preco[2]);
+    }
+    free(beb);
+    fclose(fw);
 }
+
 void printSobremesa(){
 
 }
