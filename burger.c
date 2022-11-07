@@ -84,8 +84,26 @@ void gravaSand(sanduiche *sand) {
 }
 
 void cadastroBebida(){
+    bebida* beb = malloc(sizeof(bebida));
+    printf("Código: "); scanf("%d%*c", &beb->id);
+    printf("Nome: "); scanf("%[^\n]%*c", beb->nome);
+    printf("Disponibilidade: "); scanf("%s", beb->disp);
+    printf("Preco (Tam. P): "); scanf("%f", &beb->preco[0]);
+    printf("Preco (Tam. M): "); scanf("%f", &beb->preco[1]);
+    printf("Preco (Tam. G): "); scanf("%f%*c", &beb->preco[2]);
+    gravaBebida(beb);
+    free(beb);
+}
+
+void gravaBebida(bebida *beb) {
+    FILE* fw;
+    fw = openBin("../bebida.bin");
+    fseek(fw, 0, SEEK_SET);
+    fwrite(beb,sizeof(bebida),1,fw);
+    fclose(fw);
 
 }
+
 void cadastroSobremesa(){
 
 }
@@ -110,7 +128,6 @@ void printSanduiche(){
     fclose(fw);
 }
 void printBebida(){
-
 }
 void printSobremesa(){
 

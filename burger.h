@@ -46,9 +46,15 @@ void gravaSand(sanduiche *sand);
 
 void cadastroBebida();
 
+void gravaBebida(bebida *beb);
+
 void cadastroSobremesa();
 
+void gravaSobremesa(sobremesa *sob);
+
 void cadastroExtra();
+
+void gravaExtra(extra *extra);
 
 void printSanduiche();
 
