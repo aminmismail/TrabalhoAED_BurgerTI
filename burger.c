@@ -186,7 +186,7 @@ void printSobremesa(){
         printf("Código: %d\n", sob->id);
         printf("Nome: %s\n", sob->nome);
         printf("Disponibilidade: %s\n", sob->disp);
-        printf("Preco: %.2f\n", sob->preco);
+        printf("Preco: %.2f\n\n", sob->preco);
     }
     free(sob);
     fclose(fw);
@@ -201,7 +201,7 @@ void printExtra(){
         printf("Código: %d\n", ex->id);
         printf("Nome: %s\n", ex->nome);
         printf("Disponibilidade: %s\n", ex->disp);
-        printf("Preco: %.2f\n", ex->preco);
+        printf("Preco: %.2f\n\n", ex->preco);
     }
     free(ex);
     fclose(fw);
@@ -236,11 +236,11 @@ void loadPath(){ //Le o caminho do arquivo, juntamente com o conteudo do arquivo
 
 int loadFile(char* path, FILE* file){
     if(file == NULL){
-        printf("Falha ao ler arquivo!\n");
+        printf("Falha ao ler arquivo!\n\n");
         return 1;
     }
     else{
-        printf("Arquivo lido com sucesso!\n");
+        printf("Arquivo lido com sucesso!\n\n");
         return 0;
     }
 }
