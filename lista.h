@@ -1,6 +1,7 @@
 #ifndef LISTA_H
 #define LISTA_H
 #include <stdio.h>
+#include "burger.h"
 
 // cabecalho do arquivo
 typedef struct{
@@ -14,6 +15,16 @@ typedef struct {
     int info;
     int prox;
 } no;
+
+struct no { //No pra fila dos pedidos
+    pedido info; //CONFERIR
+    struct no* prox;
+};
+
+typedef struct {
+    struct no* inicio;
+    struct no* fim;
+} Fila;
 
 //
 //Pre-condicao:

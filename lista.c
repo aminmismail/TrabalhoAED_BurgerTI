@@ -124,3 +124,5 @@ void retira(FILE* arq, int x){
     }
     free(cab);
 }
+
+
