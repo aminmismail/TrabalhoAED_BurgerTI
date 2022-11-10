@@ -227,6 +227,7 @@ void loadPath(){ //Le o caminho do arquivo, juntamente com o conteudo do arquivo
         fr = fopen(path, "r");
     }
     while(loadFile(path, fr));
+
     /*for(i=n=0 ; fscanf(fr,"%[^\n]%*c",pedline[i]) != EOF ; i++);
     n = i;
     for(i=0; i<n ;i++) printf("%s\n",pedline[i]);*/
