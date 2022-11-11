@@ -2,6 +2,7 @@
 #include "lista.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define MAX 500
 
 void menu(){
@@ -220,19 +221,37 @@ void printPedidoAtendido(){
 void loadPath(){ //Le o caminho do arquivo, juntamente com o conteudo do arquivo
     int i,n;
     FILE *fr;
-    char path[50], pedline[MAX][MAX];
+    char path[50];
     do{
         printf("Nome do arquivo:");
         scanf("%s%*c", path);
         fr = fopen(path, "r");
     }
     while(loadFile(path, fr));
-
+    cleanInput(fr);
     /*for(i=n=0 ; fscanf(fr,"%[^\n]%*c",pedline[i]) != EOF ; i++);
     n = i;
     for(i=0; i<n ;i++) printf("%s\n",pedline[i]);*/
     printf("\n");
     fclose(fr);
+}
+
+void cleanInput(FILE *fr){
+    char text[500], tipo[3];
+    int i;
+    while(fscanf(fr,"%[^\n]", text) != EOF){
+        while(text[i] != '\n'){
+            if(text[i] == ',') text[i] = '.';
+            i++;
+        }
+        sscanf(text,"%s%*c", tipo); //ARRUMAR ESSA PARTE
+        if(strncmp(tipo,"SD",2) == 0) { //SD;1;X-tudo; hamburger, ovo, pao, bacon, alface, tomate;D;12,90;17,90;21,90
+            sanduiche* sand = malloc(sizeof(sanduiche));
+            sscanf(text,"%d;%[^;];%[^;];%s;%f;%f;%f%*c", &sand->id, sand->nome, sand->desc, sand->disp, &sand->preco[0], &sand->preco[1], &sand->preco[2]);
+            gravaSand(sand);
+            free(sand);
+        }
+    }
 }
 
 int loadFile(char* path, FILE* file){

@@ -64,6 +64,8 @@ void printSobremesa();
 
 void printExtra();
 
+void cleanInput(FILE *fr);
+
 void printPedido();
 
 void printPedidoAtendido();
