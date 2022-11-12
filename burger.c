@@ -237,17 +237,20 @@ void loadPath(){ //Le o caminho do arquivo, juntamente com o conteudo do arquivo
 }
 
 void cleanInput(FILE *fr){
-    char text[500], tipo[3];
+    char text[300], tipo[2];
     int i;
     while(fscanf(fr,"%[^\n]", text) != EOF){
+        i=0;
         while(text[i] != '\n'){
             if(text[i] == ',') text[i] = '.';
             i++;
         }
-        sscanf(text,"%s%*c", tipo); //ARRUMAR ESSA PARTE
-        if(strncmp(tipo,"SD",2) == 0) { //SD;1;X-tudo; hamburger, ovo, pao, bacon, alface, tomate;D;12,90;17,90;21,90
+        //printf("%s\n",text);
+        sscanf(text,"%[^;]%*c", tipo); //ARRUMAR
+        if(strncmp("SD",tipo,2) == 0) { //SD;1;X-tudo; hamburger, ovo, pao, bacon, alface, tomate;D;12,90;17,90;21,90
             sanduiche* sand = malloc(sizeof(sanduiche));
-            sscanf(text,"%d;%[^;];%[^;];%s;%f;%f;%f%*c", &sand->id, sand->nome, sand->desc, sand->disp, &sand->preco[0], &sand->preco[1], &sand->preco[2]);
+            //printf("%s\n",text);
+            sscanf(text,";%d;%[^;]%*c%[^;];%s;%f;%f;%f%*c", &sand->id, sand->nome, sand->desc, sand->disp, &sand->preco[0], &sand->preco[1], &sand->preco[2]);
             gravaSand(sand);
             free(sand);
         }
@@ -260,7 +263,7 @@ int loadFile(char* path, FILE* file){
         return 1;
     }
     else{
-        printf("Arquivo lido com sucesso!\n\n");
+        //printf("Arquivo lido com sucesso!\n\n");
         return 0;
     }
 }
