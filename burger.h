@@ -6,28 +6,28 @@ typedef struct{ //SD
     int id;
     char nome[50];
     char desc[200];
-    char disp[2];
+    char disp[1];
     float preco[3]; // preco do p, m, g
 }sanduiche;
 
 typedef struct{ //BB
     int id;
     char nome[50];
-    char disp[2];
+    char disp[1];
     float preco[3]; //p, m, g
 }bebida;
 
 typedef struct{ //EX
     int id;
     char nome[50];
-    char disp[2];
+    char disp[1];
     float preco;
 }extra;
 
 typedef struct{ //SM
     int id;
     char nome[50];
-    char disp[2];
+    char disp[1];
     float preco;
 }sobremesa;
 

@@ -219,7 +219,6 @@ void printPedidoAtendido(){
 }
 //---------------//
 void loadPath(){ //Le o caminho do arquivo, juntamente com o conteudo do arquivo
-    int i,n;
     FILE *fr;
     char path[50];
     do{
@@ -229,30 +228,60 @@ void loadPath(){ //Le o caminho do arquivo, juntamente com o conteudo do arquivo
     }
     while(loadFile(path, fr));
     cleanInput(fr);
-    /*for(i=n=0 ; fscanf(fr,"%[^\n]%*c",pedline[i]) != EOF ; i++);
-    n = i;
-    for(i=0; i<n ;i++) printf("%s\n",pedline[i]);*/
+
     printf("\n");
     fclose(fr);
 }
 
 void cleanInput(FILE *fr){
-    char text[300], tipo[2];
+    char text[200], *aux, *p;
     int i;
-    while(fscanf(fr,"%[^\n]", text) != EOF){
-        i=0;
-        while(text[i] != '\n'){
-            if(text[i] == ',') text[i] = '.';
-            i++;
-        }
-        //printf("%s\n",text);
-        sscanf(text,"%[^;]%*c", tipo); //ARRUMAR
-        if(strncmp("SD",tipo,2) == 0) { //SD;1;X-tudo; hamburger, ovo, pao, bacon, alface, tomate;D;12,90;17,90;21,90
+    while(fscanf(fr,"%[^\n]%*c", text) != EOF){
+        char* token = strtok(text,";"); //pega o tipo
+        if(strcmp(token,"SD") == 0){
             sanduiche* sand = malloc(sizeof(sanduiche));
-            //printf("%s\n",text);
-            sscanf(text,";%d;%[^;]%*c%[^;];%s;%f;%f;%f%*c", &sand->id, sand->nome, sand->desc, sand->disp, &sand->preco[0], &sand->preco[1], &sand->preco[2]);
+            sand->id = atoi(strtok(NULL,";"));
+            strcpy(sand->nome,strtok(NULL,";"));
+            strcpy(sand->desc,strtok(NULL,";"));
+            strcpy(sand->disp,strtok(NULL,";"));
+            for(i=0;i < 3;i++){
+                for(p = aux = strtok(NULL,";");*aux != 0; aux++) if(*aux == ',') *aux = '.';
+                sand->preco[i] = atof(p);
+            }
             gravaSand(sand);
             free(sand);
+        }
+        else if(strcmp(token,"BB") == 0){
+            bebida* beb = malloc(sizeof(bebida));
+            beb->id = atoi(strtok(NULL,";"));
+            strcpy(beb->nome,strtok(NULL,";"));
+            strcpy(beb->disp,strtok(NULL,";"));
+            for(i=0;i < 3;i++){
+                for(p = aux = strtok(NULL,";");*aux != 0; aux++) if(*aux == ',') *aux = '.';
+                beb->preco[i] = atof(p);
+            }
+            gravaBebida(beb);
+            free(beb);
+        }
+        else if(strcmp(token,"EX") == 0){
+            extra* ex = malloc(sizeof(extra));
+            ex->id = atoi(strtok(NULL,";"));
+            strcpy(ex->nome,strtok(NULL,";"));
+            strcpy(ex->disp,strtok(NULL,";"));
+            for(p = aux = strtok(NULL,";");*aux != 0; aux++) if(*aux == ',') *aux = '.';
+            ex->preco = atof(p);
+            gravaExtra(ex);
+            free(ex);
+        }
+        else if(strcmp(token,"SM") == 0){
+            sobremesa* sob = malloc(sizeof(sobremesa));
+            sob->id = atoi(strtok(NULL,";"));
+            strcpy(sob->nome,strtok(NULL,";"));
+            strcpy(sob->disp,strtok(NULL,";"));
+            for(p = aux = strtok(NULL,";");*aux != 0; aux++) if(*aux == ',') *aux = '.';
+            sob->preco = atof(p);
+            gravaSobremesa(sob);
+            free(sob);
         }
     }
 }
