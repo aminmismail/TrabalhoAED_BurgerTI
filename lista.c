@@ -120,4 +120,37 @@ void retira(FILE* arq, int x){
     free(cab);
 }
 
+int vazia (Fila * f){
+    return (f->inicio == NULL);
+}
 
+Fila *cria_fila_vazia (){
+    Fila *f = (Fila *) malloc (sizeof (Fila));
+    f->inicio = NULL;
+    f->fim = NULL;
+    return f;
+}
+
+//Enfileira um elemento
+void enqueue (Fila * f, TipoItem x){
+    struct no *aux = (struct no *) malloc (sizeof (struct no));
+    aux->info = x;
+    aux->prox = NULL;
+    if (vazia (f)) f->inicio = aux;
+    else f->fim->prox = aux;
+    f->fim = aux;
+}
+
+//Desenfileira um elemento
+TipoItem *dequeue (Fila * f){
+    if (!vazia (f)){
+        TipoItem *x = (TipoItem *) malloc(sizeof(TipoItem));
+        struct no *aux = f->inicio;
+        *x = f->inicio->info;
+        if (f->inicio == f->fim) f->fim = NULL;
+        f->inicio = f->inicio->prox;
+        free (aux);
+        return x;
+    }
+    else return NULL;
+}
