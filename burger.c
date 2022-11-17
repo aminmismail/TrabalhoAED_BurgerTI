@@ -44,15 +44,18 @@ void menu(){
             printExtra();
             break;
         case 9:
-            printPedido();
+            printPedidos();
             break;
         case 10:
-            printPedidoAtendido();
+            printAtendido();
             break;
         case 11:
-            cadastroPedido();
+            printNaoAtendido();
             break;
         case 12:
+            cadastroPedido();
+            break;
+        case 13:
             loadPath();
             break;
         default:
@@ -63,19 +66,19 @@ void menu(){
 
 void cadastroSanduiche(){
     sanduiche* sand = malloc(sizeof(sanduiche));
-    printf("Código: "); scanf("%d%*c", &sand->id);
+    printf("Codigo: "); scanf("%d%*c", &sand->id);
     printf("Nome: "); scanf("%[^\n]%*c", sand->nome);
     printf("Descricao: "); scanf("%[^\n]%*c", sand->desc);
     printf("Disponibilidade: "); scanf("%s", sand->disp);
     printf("Preco (Tam. P): "); scanf("%f", &sand->preco[0]);
     printf("Preco (Tam. M): "); scanf("%f", &sand->preco[1]);
     printf("Preco (Tam. G): "); scanf("%f%*c", &sand->preco[2]);
-    gravaSand(sand);
+    gravaSanduiche(sand);
     free(sand);
 
 }
 
-void gravaSand(sanduiche *sand) {
+void gravaSanduiche(sanduiche *sand) {
     FILE* fw;
     fw = openBin("../sanduiche.bin");
     fseek(fw, 0, SEEK_SET);
@@ -86,7 +89,7 @@ void gravaSand(sanduiche *sand) {
 
 void cadastroBebida(){
     bebida* beb = malloc(sizeof(bebida));
-    printf("Código: "); scanf("%d%*c", &beb->id);
+    printf("Codigo: "); scanf("%d%*c", &beb->id);
     printf("Nome: "); scanf("%[^\n]%*c", beb->nome);
     printf("Disponibilidade: "); scanf("%s", beb->disp);
     printf("Preco (Tam. P): "); scanf("%f", &beb->preco[0]);
@@ -107,7 +110,7 @@ void gravaBebida(bebida *beb) {
 
 void cadastroSobremesa(){
     sobremesa* sob = malloc(sizeof(sobremesa));
-    printf("Código: "); scanf("%d%*c", &sob->id);
+    printf("Codigo: "); scanf("%d%*c", &sob->id);
     printf("Nome: "); scanf("%[^\n]%*c", sob->nome);
     printf("Disponibilidade: "); scanf("%s", sob->disp);
     printf("Preco: "); scanf("%f", &sob->preco);
@@ -126,7 +129,7 @@ void gravaSobremesa(sobremesa *sob) {
 
 void cadastroExtra(){
     extra* ex = malloc(sizeof(extra));
-    printf("Código: "); scanf("%d%*c", &ex->id);
+    printf("Codigo: "); scanf("%d%*c", &ex->id);
     printf("Nome: "); scanf("%[^\n]%*c", ex->nome);
     printf("Disponibilidade: "); scanf("%s", ex->disp);
     printf("Preco: "); scanf("%f", &ex->preco);
@@ -149,7 +152,7 @@ void printSanduiche(){
     fw = openBin("../sanduiche.bin");
     fseek(fw, 0, SEEK_SET);
     while(fread(sand,sizeof(sanduiche),1,fw) != 0) {
-        printf("Código: %d\n", sand->id);
+        printf("Codigo: %d\n", sand->id);
         printf("Nome: %s\n", sand->nome);
         printf("Descricao: %s\n", sand->desc);
         printf("Disponibilidade: %s\n", sand->disp);
@@ -167,7 +170,7 @@ void printBebida(){
     fw = openBin("../bebida.bin");
     fseek(fw, 0, SEEK_SET);
     while(fread(beb,sizeof(bebida),1,fw) != 0) {
-        printf("Código: %d\n", beb->id);
+        printf("Codigo: %d\n", beb->id);
         printf("Nome: %s\n", beb->nome);
         printf("Disponibilidade: %s\n", beb->disp);
         printf("Preco (Tam. P): %.2f\n", beb->preco[0]);
@@ -184,7 +187,7 @@ void printSobremesa(){
     fw = openBin("../sobremesa.bin");
     fseek(fw, 0, SEEK_SET);
     while(fread(sob,sizeof(sobremesa),1,fw) != 0) {
-        printf("Código: %d\n", sob->id);
+        printf("Codigo: %d\n", sob->id);
         printf("Nome: %s\n", sob->nome);
         printf("Disponibilidade: %s\n", sob->disp);
         printf("Preco: %.2f\n\n", sob->preco);
@@ -199,7 +202,7 @@ void printExtra(){
     fw = openBin("../extra.bin");
     fseek(fw, 0, SEEK_SET);
     while(fread(ex,sizeof(extra),1,fw) != 0) {
-        printf("Código: %d\n", ex->id);
+        printf("Codigo: %d\n", ex->id);
         printf("Nome: %s\n", ex->nome);
         printf("Disponibilidade: %s\n", ex->disp);
         printf("Preco: %.2f\n\n", ex->preco);
@@ -209,13 +212,22 @@ void printExtra(){
 }
 //---------------//
 void cadastroPedido(){
+    FILE* fw;
+    fw = openBin("../pedidos.bin");
 
 }
-void printPedido(){
+void printPedidos(){
 
 }
-void printPedidoAtendido(){
+void printAtendido(){
 
+}
+
+void cancelaPedido(){
+    //pede o cpf
+    //imprime os pedidos do cpf
+    //pede o id do pedido pra retirar
+    //atualiza o cabecalho
 }
 //---------------//
 void loadPath(){ //Le o caminho do arquivo, juntamente com o conteudo do arquivo
@@ -227,13 +239,13 @@ void loadPath(){ //Le o caminho do arquivo, juntamente com o conteudo do arquivo
         fr = fopen(path, "r");
     }
     while(loadFile(path, fr));
-    cleanInput(fr);
+    cleanRegister(fr);
 
     printf("\n");
     fclose(fr);
 }
 
-void cleanInput(FILE *fr){
+void cleanRegister(FILE *fr){
     char text[200], *aux, *p;
     int i;
     while(fscanf(fr,"%[^\n]%*c", text) != EOF){
@@ -248,7 +260,7 @@ void cleanInput(FILE *fr){
                 for(p = aux = strtok(NULL,";");*aux != 0; aux++) if(*aux == ',') *aux = '.';
                 sand->preco[i] = atof(p);
             }
-            gravaSand(sand);
+            gravaSanduiche(sand);
             free(sand);
         }
         else if(strcmp(token,"BB") == 0){

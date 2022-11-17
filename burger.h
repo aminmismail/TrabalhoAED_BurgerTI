@@ -35,6 +35,7 @@ typedef struct{ //PD
     int id;
     int cpf[11];
     char itens[300]; //armazena os itens do pedido em uma string
+    int atendido;
     float total;
 }pedido;
 
@@ -42,7 +43,7 @@ void menu();
 
 void cadastroSanduiche();
 
-void gravaSand(sanduiche *sand);
+void gravaSanduiche(sanduiche *sand);
 
 void cadastroBebida();
 
@@ -64,13 +65,17 @@ void printSobremesa();
 
 void printExtra();
 
-void cleanInput(FILE *fr);
+void cleanRegister(FILE *fr);
 
-void printPedido();
+void printPedidos();
 
-void printPedidoAtendido();
+void printAtendido();
+
+void printNaoAtendido();
 
 void cadastroPedido();
+
+void cancelaPedido();
 
 void loadPath();
 

@@ -26,9 +26,9 @@ typedef struct {
     struct no* fim;
 } Fila;
 
-//
-//Pre-condicao:
-//Pos-condicao:
+//Abre o arquivo binário
+//Pre-condicao: Um arquivo binário existente e um caminho
+//Pos-condicao: Um ponteiro para o arquivo binário
 FILE* openBin(char* path);
 
 //Escreve no arquivo o cabecalho contendo as informacoes da lista
