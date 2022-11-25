@@ -213,7 +213,13 @@ void printExtra(){
 //---------------//
 void cadastroPedido(){
     FILE* fw;
+    cabecalho *cab;
     fw = openBin("../pedidos.bin");
+    cab = le_cabecalho(fw);
+    lePedido();
+    if(cab == NULL) cria_lista_vazia(fw);
+    fseek(fw, sizeof(cab), SEEK_SET);
+
 
 }
 void printPedidos(){
