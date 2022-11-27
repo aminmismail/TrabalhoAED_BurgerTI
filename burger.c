@@ -211,16 +211,29 @@ void printExtra(){
     fclose(fw);
 }
 //---------------//
-void cadastroPedido(){
-    FILE* fw;
+void cadastroPedido() {
+    FILE *fw;
     cabecalho *cab;
+    char test[2];
+    pedido *ped = (pedido *) malloc(sizeof(pedido));
     fw = openBin("../pedidos.bin");
     cab = le_cabecalho(fw);
-    lePedido();
+    printf("ID: "); scanf("%d", &ped->id);
+    printf("CPF: "); scanf("%d%*c", &ped->cpf);
+    do {
+        printf("(SD - Sanduiche)\n(BB - Bebida)\n(EX - Extra)\n(SM - Sobremesa)\n(N - Finalizar pedido)\nDigite o tipo do item: ");
+        scanf("%s%*c", test);
+        if(strcmp(test, "SD") == 0)
+    }
+    while (strncmp(test, "N", 1) != 0);
+    /*int id;
+    int cpf[11];
+    char itens[300][300]; //armazena os itens do pedido em uma string
+    int atendido;
+    float total;*/
     if(cab == NULL) cria_lista_vazia(fw);
     fseek(fw, sizeof(cab), SEEK_SET);
-
-
+    free(ped);
 }
 void printPedidos(){
 

@@ -33,8 +33,8 @@ typedef struct{ //SM
 
 typedef struct{ //PD
     int id;
-    int cpf[11];
-    char itens[300]; //armazena os itens do pedido em uma string
+    int cpf;
+    char itens[300][300]; //armazena os itens do pedido em uma string
     int atendido;
     float total;
 }pedido;
