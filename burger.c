@@ -9,10 +9,10 @@ void menu(){
     int op;
     printf("1 - Cadastrar sanduiche\n2 - Cadastrar bebida\n3 - Cadastrar sobremesa\n4 - Cadastrar extra\n");
     printf("5 - Imprimir lista de sanduiches\n6 - Imprimir lista de bebidas\n7 - Imprimir lista de sobremesas\n8 - Imprimir lista de extras\n");
-    printf("9 - Imprimir pedido\n10 - Imprimir lista de pedidos atendidos\n11 - Registrar novo pedido\n12 - Inclusao em lote\n0 - Sair do programa\n");
+    printf("9 - Imprimir pedido\n10 - Imprimir lista de pedidos atendidos\n11 - Registrar novo pedido\n12 - Inclusao em lote\n13 - Imprimir pedidos não atendidos\n0 - Sair do programa\n");
     printf("Opcao:");
     scanf("%d%*c",&op);
-    while(op < 0 || op > 12){
+    while(op < 0 || op > 13){
         printf("Opcao invalida! Selecione uma opcao valida.\n\nOpcao:");
         scanf("%d",&op);
     }
@@ -50,13 +50,13 @@ void menu(){
             printAtendido();
             break;
         case 11:
-            printNaoAtendido();
-            break;
-        case 12:
             cadastroPedido();
             break;
-        case 13:
+        case 12:
             loadPath();
+            break;
+        case 13:
+            //printNaoAtendido();
             break;
         default:
             break;
@@ -218,28 +218,70 @@ void cadastroPedido() {
     pedido *ped = (pedido *) malloc(sizeof(pedido));
     fw = openBin("../pedidos.bin");
     cab = le_cabecalho(fw);
-    printf("ID: "); scanf("%d", &ped->id);
+    if(cab == NULL) cria_lista_vazia(fw);
+    ped->id = cab->pos_topo;
+    cab->pos_topo += 1;
+
     printf("CPF: "); scanf("%d%*c", &ped->cpf);
-    do {
-        printf("(SD - Sanduiche)\n(BB - Bebida)\n(EX - Extra)\n(SM - Sobremesa)\n(N - Finalizar pedido)\nDigite o tipo do item: ");
-        scanf("%s%*c", test);
-        if(strcmp(test, "SD") == 0)
-    }
-    while (strncmp(test, "N", 1) != 0);
+    printf("(SD - Sanduiche)\n(BB - Bebida)\n(EX - Extra)\n(SM - Sobremesa)\n");
+    printf("Formato do pedido: (SD,ID,QUANTIDADE,TAMANHO)\n(BB,ID,QUANTIDADE,TAMANHO)\n(EX,ID,QUANTIDADE)\n(SM,ID,QUANTIDADE)\n");
+    printf("Exemplo de pedido: (SD,1,2,M);(BB,2,3,M);(EX,3,4);(SM,2,2)");
+    scanf("%[^\n]%*c", ped->itens);
+    ped->atendido = 0;
+    ped->total = getTotalPedido(ped);
+
+
     /*int id;
     int cpf[11];
-    char itens[300][300]; //armazena os itens do pedido em uma string
+    char itens[300];
     int atendido;
     float total;*/
-    if(cab == NULL) cria_lista_vazia(fw);
+
     fseek(fw, sizeof(cab), SEEK_SET);
     free(ped);
 }
 void printPedidos(){
 
 }
+
 void printAtendido(){
 
+}
+
+float getTotalPedido(pedido* ped){
+    float tot;
+    char* token = strtok(text,";"); //pega o tipo
+    if(strcmp(token,"SD") == 0){
+        sanduiche* sand = malloc(sizeof(sanduiche));
+        sand->id = atoi(strtok(NULL,";"));
+        strcpy(sand->nome,strtok(NULL,";"));
+        strcpy(sand->desc,strtok(NULL,";"));
+        strcpy(sand->disp,strtok(NULL,";"));
+        free(sand);
+    }
+    else if(strcmp(token,"BB") == 0){
+        bebida* beb = malloc(sizeof(bebida));
+        beb->id = atoi(strtok(NULL,";"));
+        strcpy(beb->nome,strtok(NULL,";"));
+        strcpy(beb->disp,strtok(NULL,";"));
+        free(beb);
+    }
+    else if(strcmp(token,"EX") == 0){
+        extra* ex = malloc(sizeof(extra));
+        ex->id = atoi(strtok(NULL,";"));
+        strcpy(ex->nome,strtok(NULL,";"));
+        strcpy(ex->disp,strtok(NULL,";"));
+        for(p = aux = strtok(NULL,";");*aux != 0; aux++) if(*aux == ',') *aux = '.';
+        free(ex);
+    }
+    else if(strcmp(token,"SM") == 0){
+        sobremesa* sob = malloc(sizeof(sobremesa));
+        sob->id = atoi(strtok(NULL,";"));
+        strcpy(sob->nome,strtok(NULL,";"));
+        strcpy(sob->disp,strtok(NULL,";"));
+        for(p = aux = strtok(NULL,";");*aux != 0; aux++) if(*aux == ',') *aux = '.';
+        free(sob);
+    }
 }
 
 void cancelaPedido(){

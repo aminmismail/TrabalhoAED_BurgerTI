@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/amin_/CLionProjects/TrabalhoAED_BurgerTI/burger.c" "CMakeFiles/BurguerTI_AED.dir/burger.c.obj" "gcc" "CMakeFiles/BurguerTI_AED.dir/burger.c.obj.d"
-  "C:/Users/amin_/CLionProjects/TrabalhoAED_BurgerTI/lista.c" "CMakeFiles/BurguerTI_AED.dir/lista.c.obj" "gcc" "CMakeFiles/BurguerTI_AED.dir/lista.c.obj.d"
-  "C:/Users/amin_/CLionProjects/TrabalhoAED_BurgerTI/main.c" "CMakeFiles/BurguerTI_AED.dir/main.c.obj" "gcc" "CMakeFiles/BurguerTI_AED.dir/main.c.obj.d"
+  "/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/burger.c" "CMakeFiles/BurguerTI_AED.dir/burger.c.o" "gcc" "CMakeFiles/BurguerTI_AED.dir/burger.c.o.d"
+  "/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/lista.c" "CMakeFiles/BurguerTI_AED.dir/lista.c.o" "gcc" "CMakeFiles/BurguerTI_AED.dir/lista.c.o.d"
+  "/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/main.c" "CMakeFiles/BurguerTI_AED.dir/main.c.o" "gcc" "CMakeFiles/BurguerTI_AED.dir/main.c.o.d"
   )
 
 # Targets to which this target links.

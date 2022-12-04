@@ -34,7 +34,7 @@ typedef struct{ //SM
 typedef struct{ //PD
     int id;
     int cpf;
-    char itens[300][300]; //armazena os itens do pedido em uma string
+    char itens[300]; //armazena os itens do pedido em uma string
     int atendido;
     float total;
 }pedido;
@@ -74,6 +74,8 @@ void printAtendido();
 void printNaoAtendido();
 
 void cadastroPedido();
+
+float getTotalPedido(pedido* ped);
 
 void cancelaPedido();
 

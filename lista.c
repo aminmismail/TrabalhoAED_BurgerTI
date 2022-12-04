@@ -64,7 +64,7 @@ void escreve_no(FILE* arq, no* x, int pos){
 //Insere um no na lista encadeada no arquivo
 //Pre-condicao: arquivo deve estar aberto e ser um arquivo de lista
 //Pos-condicao: no inserido no arquivo
-void insere(FILE* arq, int info){
+/*void insere(FILE* arq, int info){
     cabecalho* cab = le_cabecalho(arq);
     no x;
     x.info = info;
@@ -118,7 +118,7 @@ void retira(FILE* arq, int x){
         free(aux);
     }
     free(cab);
-}
+}*/
 
 int vazia (Fila * f){
     return (f->inicio == NULL);
@@ -132,8 +132,8 @@ Fila *cria_fila_vazia (){
 }
 
 //Enfileira um elemento
-void enqueue (Fila * f, TipoItem x){
-    struct no *aux = (struct no *) malloc (sizeof (struct no));
+void enqueue (Fila *f, pedido* x){
+    no *aux = (no *) malloc(sizeof(no));
     aux->info = x;
     aux->prox = NULL;
     if (vazia (f)) f->inicio = aux;
@@ -142,9 +142,9 @@ void enqueue (Fila * f, TipoItem x){
 }
 
 //Desenfileira um elemento
-TipoItem *dequeue (Fila * f){
+pedido *dequeue (Fila * f){
     if (!vazia (f)){
-        TipoItem *x = (TipoItem *) malloc(sizeof(TipoItem));
+        pedido *x = (pedido*) malloc(sizeof(pedido));
         struct no *aux = f->inicio;
         *x = f->inicio->info;
         if (f->inicio == f->fim) f->fim = NULL;

@@ -12,12 +12,12 @@ typedef struct{
 
 // estrutura de no para lista encadeada
 typedef struct {
-    int info;
+    pedido* info;
     int prox;
 } no;
 
 struct no { //No pra fila dos pedidos
-    pedido info; //CONFERIR
+    pedido* info; //CONFERIR
     struct no* prox;
 };
 
@@ -59,11 +59,21 @@ void escreve_no(FILE* arq, no* x, int pos);
 //Insere um no na lista encadeada no arquivo
 //Pre-condicao: arquivo deve estar aberto e ser um arquivo de lista
 //Pos-condicao: no inserido no arquivo
-void insere(FILE* arq, int info);
+void insere(FILE* arq, pedido* info);
 
 //Retira um no da lista
 //Pre-condicao: arquivo deve estar aberto e ser um arquivo de lista
 //Pos-condicao: no retirado da lista caso pertenca a ela
-void retira(FILE* arq, int x);
+void retira(FILE* arq, pedido* x);
+
+// Enfileira um elemento
+//Pre-condicao:
+//Pos-condicao:
+void enqueue(Fila* f, pedido* x);
+
+// Desenfileira um elemento
+//Pre-condicao:
+//Pos-condicao:
+pedido* dequeue(Fila * f);
 
 #endif //LISTA_H

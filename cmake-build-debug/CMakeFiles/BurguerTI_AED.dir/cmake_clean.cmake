@@ -1,14 +1,12 @@
 file(REMOVE_RECURSE
-  "BurguerTI_AED.exe"
-  "BurguerTI_AED.exe.manifest"
+  "BurguerTI_AED"
   "BurguerTI_AED.pdb"
-  "CMakeFiles/BurguerTI_AED.dir/burger.c.obj"
-  "CMakeFiles/BurguerTI_AED.dir/burger.c.obj.d"
-  "CMakeFiles/BurguerTI_AED.dir/lista.c.obj"
-  "CMakeFiles/BurguerTI_AED.dir/lista.c.obj.d"
-  "CMakeFiles/BurguerTI_AED.dir/main.c.obj"
-  "CMakeFiles/BurguerTI_AED.dir/main.c.obj.d"
-  "libBurguerTI_AED.dll.a"
+  "CMakeFiles/BurguerTI_AED.dir/burger.c.o"
+  "CMakeFiles/BurguerTI_AED.dir/burger.c.o.d"
+  "CMakeFiles/BurguerTI_AED.dir/lista.c.o"
+  "CMakeFiles/BurguerTI_AED.dir/lista.c.o.d"
+  "CMakeFiles/BurguerTI_AED.dir/main.c.o"
+  "CMakeFiles/BurguerTI_AED.dir/main.c.o.d"
 )
 
 # Per-language clean rules from dependency scanning.
