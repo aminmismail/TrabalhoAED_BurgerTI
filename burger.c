@@ -214,43 +214,79 @@ void printExtra(){
 void cadastroPedido() {
     FILE *fw;
     cabecalho *cab;
-    char test[2];
     pedido *ped = (pedido *) malloc(sizeof(pedido));
     fw = openBin("../pedidos.bin");
     cab = le_cabecalho(fw);
     if(cab == NULL) cria_lista_vazia(fw);
-    ped->id = cab->pos_topo;
-    cab->pos_topo += 1;
-
+    //atualiza cabecalho
     printf("CPF: "); scanf("%d%*c", &ped->cpf);
-    printf("(SD - Sanduiche)\n(BB - Bebida)\n(EX - Extra)\n(SM - Sobremesa)\n");
-    printf("Formato do pedido: (SD,ID,QUANTIDADE,TAMANHO)\n(BB,ID,QUANTIDADE,TAMANHO)\n(EX,ID,QUANTIDADE)\n(SM,ID,QUANTIDADE)\n");
-    printf("Exemplo de pedido: (SD,1,2,M);(BB,2,3,M);(EX,3,4);(SM,2,2)");
+    printf("(SD - Sanduiche) (BB - Bebida) (EX - Extra) (SM - Sobremesa)\n");
+    printf("Formato do pedido: (SD,ID,QUANTIDADE,TAMANHO) (BB,ID,QUANTIDADE,TAMANHO) (EX,ID,QUANTIDADE) (SM,ID,QUANTIDADE)\n");
+    printf("Exemplo de pedido: (SD,1,2,M);(BB,2,3,M);(SM,2,2)\n");
     scanf("%[^\n]%*c", ped->itens);
-    ped->atendido = 0;
-    ped->total = getTotalPedido(ped);
+    //
+    ped->id = cab->pos_topo;
+    cab->pos_topo++;
+    ped->prox = cab->pos_topo;
 
+    ped->total = 0; //getTotalPedido(ped);
+    gravaPedido(fw, ped);
+
+    escreve_cabecalho(fw,cab);
 
     /*int id;
     int cpf[11];
     char itens[300];
-    int atendido;
-    float total;*/
+    float total;
+    int prox;*/
 
-    fseek(fw, sizeof(cab), SEEK_SET);
     free(ped);
+    fclose(fw);
 }
-void printPedidos(){
 
+void gravaPedido(FILE *fw, pedido *ped){
+    fseek(fw,sizeof(cabecalho) + sizeof(pedido) * ped->id, SEEK_SET);
+    fwrite(ped, sizeof(pedido), 1, fw);
+}
+
+void atendePedido(){
+    cabecalho *cab;
+    FILE *fw;
+    fw = openBin("../pedidos.bin");
+    cab = le_cabecalho(fw);
+    cab->pos_cabeca++;
+    fseek(fw,sizeof(cabecalho),SEEK_SET);
+    fwrite(0,sizeof(pedido),1,fw);
+    fclose(fw);
+}
+
+void printPedidos(){
+    FILE *fw;
+    pedido *ped = (pedido *) malloc(sizeof(pedido));
+    fw = openBin("../pedidos.bin");
+    while(fread(ped,sizeof(pedido),1,fw) != 0) {
+        printf("ID: %d\n", ped->id);
+        printf("CPF: %d\n", ped->cpf);
+        printf("Itens: %s\n", ped->itens);
+        printf("Total: %.2f\n", ped->total);
+        printf("Proximo pedido: %d\n", ped->prox);
+        /*int id;
+        int cpf[11];
+        char itens[300];
+        float total;
+        int prox;*/
+    }
+    free(ped);
+    fclose(fw);
 }
 
 void printAtendido(){
 
 }
 
-float getTotalPedido(pedido* ped){
+/*float getTotalPedido(pedido* ped){
     float tot;
-    char* token = strtok(text,";"); //pega o tipo
+    char* token = strtok(ped->itens,";"); //pega o tipo
     if(strcmp(token,"SD") == 0){
         sanduiche* sand = malloc(sizeof(sanduiche));
         sand->id = atoi(strtok(NULL,";"));
@@ -282,7 +318,7 @@ float getTotalPedido(pedido* ped){
         for(p = aux = strtok(NULL,";");*aux != 0; aux++) if(*aux == ',') *aux = '.';
         free(sob);
     }
-}
+}*/
 
 void cancelaPedido(){
     //pede o cpf

@@ -26,8 +26,8 @@ void escreve_cabecalho(FILE* arq, cabecalho* cab){
 //Pos-condicao: arquivo inicializado com uma lista vazia
 void cria_lista_vazia(FILE* arq){
     cabecalho * cab = (cabecalho*) malloc(sizeof(cabecalho));
-    cab->pos_cabeca = -1;
-    cab->pos_topo = 0;
+    cab->pos_cabeca = 1;
+    cab->pos_topo = 1;
     cab->pos_livre = -1;
     escreve_cabecalho(arq,cab);
     free(cab);
@@ -130,7 +130,7 @@ Fila *cria_fila_vazia (){
     f->fim = NULL;
     return f;
 }
-
+/*
 //Enfileira um elemento
 void enqueue (Fila *f, pedido* x){
     no *aux = (no *) malloc(sizeof(no));
@@ -154,3 +154,4 @@ pedido *dequeue (Fila * f){
     }
     else return NULL;
 }
+*/
