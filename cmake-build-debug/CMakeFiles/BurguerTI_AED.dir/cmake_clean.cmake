@@ -3,8 +3,6 @@ file(REMOVE_RECURSE
   "BurguerTI_AED.pdb"
   "CMakeFiles/BurguerTI_AED.dir/burger.c.o"
   "CMakeFiles/BurguerTI_AED.dir/burger.c.o.d"
-  "CMakeFiles/BurguerTI_AED.dir/lista.c.o"
-  "CMakeFiles/BurguerTI_AED.dir/lista.c.o.d"
   "CMakeFiles/BurguerTI_AED.dir/main.c.o"
   "CMakeFiles/BurguerTI_AED.dir/main.c.o.d"
 )

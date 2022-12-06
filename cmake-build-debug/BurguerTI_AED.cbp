@@ -82,12 +82,6 @@
 		<Unit filename="/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/burger.h">
 			<Option target="BurguerTI_AED"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/lista.c">
-			<Option target="BurguerTI_AED"/>
-		</Unit>
-		<Unit filename="/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/lista.h">
-			<Option target="BurguerTI_AED"/>
-		</Unit>
 		<Unit filename="/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/main.c">
 			<Option target="BurguerTI_AED"/>
 		</Unit>

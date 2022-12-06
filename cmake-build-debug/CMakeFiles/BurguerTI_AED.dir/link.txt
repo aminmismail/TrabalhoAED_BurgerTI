@@ -1,1 +1,1 @@
-/usr/bin/cc -g CMakeFiles/BurguerTI_AED.dir/main.c.o CMakeFiles/BurguerTI_AED.dir/burger.c.o CMakeFiles/BurguerTI_AED.dir/lista.c.o -o BurguerTI_AED 
+/usr/bin/cc -g CMakeFiles/BurguerTI_AED.dir/main.c.o CMakeFiles/BurguerTI_AED.dir/burger.c.o -o BurguerTI_AED 

@@ -153,30 +153,6 @@ burger.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BurguerTI_AED.dir/build.make CMakeFiles/BurguerTI_AED.dir/burger.c.s
 .PHONY : burger.c.s
 
-lista.o: lista.c.o
-.PHONY : lista.o
-
-# target to build an object file
-lista.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BurguerTI_AED.dir/build.make CMakeFiles/BurguerTI_AED.dir/lista.c.o
-.PHONY : lista.c.o
-
-lista.i: lista.c.i
-.PHONY : lista.i
-
-# target to preprocess a source file
-lista.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BurguerTI_AED.dir/build.make CMakeFiles/BurguerTI_AED.dir/lista.c.i
-.PHONY : lista.c.i
-
-lista.s: lista.c.s
-.PHONY : lista.s
-
-# target to generate assembly for a file
-lista.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BurguerTI_AED.dir/build.make CMakeFiles/BurguerTI_AED.dir/lista.c.s
-.PHONY : lista.c.s
-
 main.o: main.c.o
 .PHONY : main.o
 
@@ -213,9 +189,6 @@ help:
 	@echo "... burger.o"
 	@echo "... burger.i"
 	@echo "... burger.s"
-	@echo "... lista.o"
-	@echo "... lista.i"
-	@echo "... lista.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

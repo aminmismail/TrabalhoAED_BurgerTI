@@ -81,12 +81,12 @@ clean: CMakeFiles/BurguerTI_AED.dir/clean
 CMakeFiles/BurguerTI_AED.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BurguerTI_AED.dir/build.make CMakeFiles/BurguerTI_AED.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BurguerTI_AED.dir/build.make CMakeFiles/BurguerTI_AED.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/cmake-build-debug/CMakeFiles" --progress-num=1,2,3,4 "Built target BurguerTI_AED"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/cmake-build-debug/CMakeFiles" --progress-num=1,2,3 "Built target BurguerTI_AED"
 .PHONY : CMakeFiles/BurguerTI_AED.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/BurguerTI_AED.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/cmake-build-debug/CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/cmake-build-debug/CMakeFiles" 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/BurguerTI_AED.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/amin_/Desktop/CODIGOS/CLion Projects/TrabalhoAED_BurgerTI/cmake-build-debug/CMakeFiles" 0
 .PHONY : CMakeFiles/BurguerTI_AED.dir/rule
